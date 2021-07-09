@@ -6,6 +6,7 @@ class Mastermind
     @code_breaker = breaker
     @code = code
   end
+  def check(input)
 end
 
 class CodeMaker
