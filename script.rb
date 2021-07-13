@@ -6,6 +6,7 @@ def user_input
   gets.chomp.to_i
 end
 
+
 puts "Hello, are you gonna \n 1.make \n 2.break the code today"
 choice = gets.chomp.to_i
 if choice != 1 && choice != 2
@@ -37,7 +38,7 @@ else
 end
 
 if choice == 2
-
+  
   puts "Hello Code Breaker, whats your name"
   code_breaker = CodeBreaker.new(gets.chomp.to_s)
   puts "\n"
@@ -47,18 +48,44 @@ end
 
 game = Mastermind.new(code_maker.maker_name, code_breaker.breaker_name, code_maker.input.to_s)
 
-if choice = 2
+if choice == 2
+  
+  # no_of_attempts = 10
+  
+  # until (game.correct_number == 4 && game.matches == 4) || no_of_attempts <= 0
+  #   puts "#{code_breaker.breaker_name}, you have #{no_of_attempts} attempts to crack the code."
+  #   puts "enter your guess"
+  #   guess = user_input
+  #   if guess == 0 || guess.to_s.length != 4
+  #     until guess != 0 && guess.to_s.length == 4
+  #       puts "The entered code was invalid \n Please input a 4 digit number"
+  #       guess = user_input
+  #     end
+  #   end
+  #   no_of_attempts -= 1
+  
+  #   code_breaker.guess(guess.to_s)
+  #   game.check_match(code_breaker.the_guess)
+  
+  
+  #   p no_of_attempts
+  #   p game.correct_number
+  #   p game.matches
+  # end
+  play(user_input)
+end
 
+def play (input)
   no_of_attempts = 10
 
   until (game.correct_number == 4 && game.matches == 4) || no_of_attempts <= 0
     puts "#{code_breaker.breaker_name}, you have #{no_of_attempts} attempts to crack the code."
     puts "enter your guess"
-    guess = user_input
+    guess = input
     if guess == 0 || guess.to_s.length != 4
       until guess != 0 && guess.to_s.length == 4
         puts "The entered code was invalid \n Please input a 4 digit number"
-        guess = user_input
+        guess = input
       end
     end
     no_of_attempts -= 1
