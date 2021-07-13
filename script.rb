@@ -1,73 +1,15 @@
 require_relative "code_breaker.rb"
 require_relative "code_maker.rb"
 require_relative "mastermind.rb"
-# class Mastermind
-#   attr_reader :code_maker, :code_breaker, :code
-#   attr_writer :code
-#   attr_accessor :correct_number, :matches
-#   def initialize(maker,breaker,code)
-#     @code_maker = maker
-#     @code_breaker = breaker
-#     @code = code
-#     @correct_number = 0
-#     @matches = 0
-#   end
-#   def check_match(input)
-#     @correct_number = 0
-#     @matches = 0
-#     input_array = input.split(//)
-#     @input_array = input.split(//)
-#     code_array = @code.split(//)
-#     @code_array = @code.split(//)
 
-#     @correct_number = right_numbers(code_array, input_array)
-
-#     @code_array.each_with_index do |v, i|
-#       @input_array.each_with_index do |e, x|
-#         if i == x && e == v
-#           @matches += 1
-#         end
-#       end
-#     end
-#   end
-#   def right_numbers(master, guess)
-#     same = 0
-#     guess.each_index do |index|
-#       next unless guess[index] != '*' && master.include?(guess[index])
-
-#       same += 1
-#       remove = master.find_index(guess[index])
-#       master[remove] = '?'
-#       guess[index] = '?'
-#     end
-#     same
-#   end
-# end
-
-# class CodeMaker
-#   attr_reader :maker_name, :input
-#   attr_writer :input
-#   def initialize(maker)
-#     @maker_name = maker
-#   end
-#   def declare_code
-#     @input = gets.chomp!.to_i
-#   end
-# end
-
-# class CodeBreaker
-#   attr_accessor :breaker_name, :no_1, :no_2, :no_3, :no_4, :the_guess
-#   def initialize(breaker)
-#     @breaker_name = breaker
-#   end
-#   def guess(guess)
-#     @no_1 = guess[0]
-#     @no_2 = guess[1]
-#     @no_3 = guess[2]
-#     @no_4 = guess[3]
-#     @the_guess = guess
-#   end
-# end
+puts "Hello, are you gonna \n 1.make \n 2.break the code today"
+choice = gets.chomp.to_i
+if choice != 1 && choice != 2
+  until choice == 1 || choice == 2
+    puts "Please enter 1 for make or 2 for break"
+    choice = gets.chomp.to_i
+  end
+end
 
 puts "Hello Code Maker, whats your name"
 code_maker = CodeMaker.new(gets.chomp.to_s)
