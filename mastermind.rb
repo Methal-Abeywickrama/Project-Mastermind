@@ -1,14 +1,18 @@
+# frozen_string_literal: true
+
+# main game class
 class Mastermind
-  attr_reader :code_maker, :code_breaker, :code
-  attr_writer :code
-  attr_accessor :correct_number, :matches
-  def initialize(maker,breaker,code)
+  attr_accessor :code, :correct_number, :matches
+  attr_reader :code_maker, :code_breaker
+
+  def initialize(maker, breaker, code)
     @code_maker = maker
     @code_breaker = breaker
     @code = code
     @correct_number = 0
     @matches = 0
   end
+
   def check_match(input)
     @correct_number = 0
     @matches = 0
@@ -21,12 +25,11 @@ class Mastermind
 
     @code_array.each_with_index do |v, i|
       @input_array.each_with_index do |e, x|
-        if i == x && e == v
-          @matches += 1
-        end
+        @matches += 1 if i == x && e == v
       end
     end
   end
+
   def right_numbers(master, guess)
     same = 0
     guess.each_index do |index|
